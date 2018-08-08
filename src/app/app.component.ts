@@ -20,8 +20,6 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
-      console.log("FB: " + firebase.auth);
-      console.log("ap: " + MyApp.fb_config.apiKey);
     });
   }
 }
