@@ -1,26 +1,31 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Table Bee!
+      Times Bee!
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openModal()">
+        <ion-icon large [name]="iconName"></ion-icon>
+      </button>
+    </ion-buttons>
     <!-- <ion-buttons>
       <button ion-button>O</button>
     </ion-buttons> -->
   </ion-navbar>
 </ion-header>
 
-<ion-content padding center text-right>
+<ion-content padding center text-center>
   <div class="appview">
     <ion-grid>
       <ion-row>
-        <ion-col col-6 class="multiplicand">
+        <ion-col col-5 class="multiplicand">
           {{ multiplicand }}
         </ion-col>
         <ion-col col-2 class="times">
           &times;
           <!--Alt is ✖ - That's a times sign (bolder version of &times;) not x -->
         </ion-col>
-        <ion-col col-4 class="multiplier">
+        <ion-col col-5 class="multiplier">
           {{ multiplier }}
         </ion-col>
       </ion-row>
@@ -32,15 +37,15 @@
           =
         </ion-col>
         <ion-col col-5 class="response">
-          <ion-input type="number" placeholder="???"></ion-input>
+          <ion-input #input type="number" placeholder="???" [(ngModel)]="response"></ion-input>
         </ion-col>
       </ion-row>
-      <ion-row>
-        <ion-col col-8 class="status">
+      <ion-row align-items-end>
+        <ion-col col-8 class="status" [ngStyle]="{'color': resultColor}">
           {{ message }}
         </ion-col>
         <ion-col col-4>
-          <button ion-button full> Check </button>
+          <button ion-button full (click)="checkAnswer(triggerBtnLabel)"> {{ triggerBtnLabel }} </button>
         </ion-col>
       </ion-row>
     </ion-grid>
