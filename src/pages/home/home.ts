@@ -15,6 +15,7 @@ export class HomePage {
   multiplier: number = 12;
   response: number = 0;
   responseStr: String = "???";
+  message: String = "Enter answer and tap Check!";
   constructor(public navCtrl: NavController) {
   }
 
