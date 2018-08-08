@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { MyApp } from '../../app/app.component';
 
 @Component({
   selector: 'page-home',
@@ -25,20 +26,22 @@ export class HomePage {
 
   result: String = "";
   resultColor: String = "#000000";
-  multiplicand: number = 11;
-  multiplier: number = 12;
+  multiplicand: number;
+  multiplier: number;
   response: any;
   message: String = "";
   triggerBtnLabel: String;
   iconName: String = "settings";
 
   constructor(public navCtrl: NavController) {
+    this.multiplicand = this.randomInt(this.minMult, this.maxMult);
+    this.multiplier = this.randomInt(this.minMult, this.maxMult);
     this.message = this.checkMessage;
     this.triggerBtnLabel = this.triggerCheck;
   }
 
   ionViewDidLoad() {
-    console.log("View Loaded!");
+    console.log("View Loaded! ");
     setTimeout(() => {
       this.answerField.setFocus();
     }, 200);
@@ -47,6 +50,25 @@ export class HomePage {
   // Open Settings page
   openModal() {
     console.log("OpenModal()");
+    var provider = new MyApp.fb.auth.GoogleAuthProvider();
+    MyApp.fb.auth().signInWithPopup(provider).then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      var token = result.credential.accessToken;
+      // The signed-in user info.
+      var user = result.user;
+      // ...
+      console.log("Auth SUCCESS: User " + user + " token " + token);
+    }).catch((error) => {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      // ...
+      console.log("Auth Error: ${errorCode}, " + errorMessage);
+    });
   }
 
   resultSuccess() {

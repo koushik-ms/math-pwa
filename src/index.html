@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   <meta charset="UTF-8">
   <title>Ionic App</title>
@@ -18,6 +19,23 @@
   <!-- cordova.js required for cordova apps (remove if not needed) -->
   <script src="cordova.js"></script>
 
+  <!-- Add firebase configuration -->
+  <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAnuH6Gf20vVFKE4v1cfg3ZzAXo2Nkx-X4",
+      authDomain: "math-pwa.firebaseapp.com",
+      databaseURL: "https://math-pwa.firebaseio.com",
+      projectId: "math-pwa",
+      storageBucket: "math-pwa.appspot.com",
+      messagingSenderId: "790825931947"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+
   <!-- un-comment this code to enable service worker
   <script>
     if ('serviceWorker' in navigator) {
@@ -30,6 +48,7 @@
   <link href="build/main.css" rel="stylesheet">
 
 </head>
+
 <body>
 
   <!-- Ionic's root component and where the app will load -->
@@ -46,4 +65,5 @@
   <script src="build/main.js"></script>
 
 </body>
+
 </html>
