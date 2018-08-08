@@ -11,6 +11,7 @@ export class SettingsPage {
   data: any = {};
   signedIn: boolean = false;
   score: number;
+  userDisplay: String;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -21,6 +22,7 @@ export class SettingsPage {
     if (this.data != null) {
       if (this.data.user != null) {
         this.signedIn = true;
+        this.userDisplay = this.data.user.email;
       }
       if (this.data.score != null) {
         this.score = Math.round(this.data.score * 100) / 100;
@@ -30,10 +32,6 @@ export class SettingsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SettingsPage with score: ' + this.data.score);
-    for (let [key, value] of this.data.scores) {
-      console.log(key, value);
-    }
-    console.log("Ob: " + this.data.scores[11]);
   }
 
   viewDetails() {
@@ -49,11 +47,10 @@ export class SettingsPage {
       this.data.user = result.user;
       // Cache result for later processing
       this.data.authResult = result;
+      this.userDisplay = this.data.user.email;
       this.zone.run(() => {
         this.signedIn = true;
       });
-      console.log("Auth SUCCESS: User " + this.data.user + " token " + this.data.accessToken);
-      console.log("Result is" + JSON.stringify(this.data));
     }).catch((error) => {
       // Handle Errors here.
       let errorCode = error.code;
@@ -81,13 +78,14 @@ export class SettingsPage {
       //   // An error happened.
       //   console.log("Signout error!");
       // });
-      this.data.authResult = null;
-      this.data.user = null;
-      this.data.accessToken = null;
       this.zone.run(() => {
         this.signedIn = true;
+        this.data.authResult = null;
+        this.data.user = null;
+        this.data.accessToken = null;
       });
     }
+    this.viewCtrl.dismiss();
   }
 }
 

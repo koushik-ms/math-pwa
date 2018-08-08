@@ -104,7 +104,6 @@ export class HomePage {
         datum[1] = Math.min(100, datum[1] + 1);
         this.appCtxt.scores[this.multiplicand - HomePage.minMult] = datum;
         this.appCtxt.score = Math.min(100, this.appCtxt.score + this.scoreIncrement);
-        console.log(this.appCtxt.score, this.appCtxt.scores);
       } else {
         console.log("Alas! That's incorrect!");
         this.resultFailure();
@@ -113,7 +112,6 @@ export class HomePage {
         datum[1] = Math.max(0, datum[1] - .5);
         this.appCtxt.scores[this.multiplicand - HomePage.minMult] = datum;
         this.appCtxt.score = Math.max(0, this.appCtxt.score - 0.5 * this.scoreIncrement);
-        console.log(this.appCtxt.score, this.appCtxt.scores);
       }
       this.triggerBtnLabel = HomePage.triggerNext;
     } else {
