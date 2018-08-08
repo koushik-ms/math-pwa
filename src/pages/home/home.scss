@@ -1,3 +1,48 @@
 page-home {
-
+    .appview {
+        margin-bottom: 10vh;
+        font-size: 5rem;
+        color: #37474f;
+        // background-color: whitesmoke;
+    }
+    .multiplicand {
+        /* Special styling for multiplicand */
+        color: purple;
+        font-weight: 800;
+    }
+    .times {
+        /* Special styling for times symbol */
+        font-weight: 800;
+        color: darkgoldenrod;
+    }
+    .multiplier {
+        /* Special styling for multiplier */
+        color: darkcyan;
+        font-weight: 100;
+        font-style: italic;
+    }
+    .result {
+        /* Special styling for result */
+        font-size: 8rem;
+        color: red;
+        text-align: center;
+    }
+    .equals {
+        /* Special styling for equals */
+        font-weight: 100;
+        color: darkcyan;
+    }
+    .response {
+        /* Special styling for response */
+        font-weight: 800;
+        font-size: 6rem;
+    }
+    .status {
+        /* Special styling for result */
+        font-size: 2rem;
+        font-weight: 500;
+    }
+    ion-input {
+        text-align: right;
+    }
 }
