@@ -58,13 +58,14 @@ export class HomePage {
   }
 
   // Open Settings page
-  openModal() {
-    console.log("OpenModal()");
-    let modal = this.modalCtrl.create(SettingsPage, { 'context': this.appCtxt });
-    modal.onDidDismiss((data) => {
-      console.log("Modal returned: " + data);
-    });
-    modal.present();
+  showSettings() {
+    console.log("showSettings()");
+    // let modal = this.modalCtrl.create(SettingsPage, { 'context': this.appCtxt });
+    // modal.onDidDismiss((data) => {
+    //   console.log("Modal returned: " + data);
+    // });
+    // modal.present();
+    this.navCtrl.push(SettingsPage, { 'context': this.appCtxt });
   }
 
   resultSuccess() {

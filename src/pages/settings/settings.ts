@@ -34,8 +34,9 @@ export class SettingsPage {
     console.log('ionViewDidLoad SettingsPage with score: ' + this.data.score);
   }
 
-  viewDetails() {
-    console.log("View Score Details");
+  sync() {
+    console.log("Sync! Back!");
+    this.viewCtrl.dismiss();
   }
 
   signIn() {
@@ -65,7 +66,7 @@ export class SettingsPage {
       this.data.user = null;
       this.data.accessToken = null;
       this.zone.run(() => {
-        this.signedIn = true;
+        this.signedIn = false;
       });
     });
   }

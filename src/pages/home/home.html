@@ -4,7 +4,10 @@
       Times Bee!
     </ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="openModal()">
+      <button ion-button icon-only *ngIf="appCtxt.user != null" (click)="showSettings()">
+        <ion-icon large name="person"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="showSettings()">
         <ion-icon large [name]="iconName"></ion-icon>
       </button>
     </ion-buttons>
