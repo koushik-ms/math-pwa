@@ -1,6 +1,6 @@
 {
   "name": "Times Bee",
-  "short_name": "times-bee",
+  "short_name": "times_bee",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [
